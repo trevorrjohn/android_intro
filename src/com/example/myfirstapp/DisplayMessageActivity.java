@@ -1,28 +1,16 @@
+package com.example.myfirstapp;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.view.MenuItem;
+import android.widget.TextView;
+
 public class DisplayMessageActivity extends Activity {
 
   @SuppressLint("NewApi")
-  @Override
-  protected void onCreate(Bundle saveInstanceState) {
-
-    super.onCreate(saveInstanceState);
-    setCurrentView(R.layout.activity_display_message);
-
-    // Version check
-    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-      getActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-  }
-
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    switch(item.getItemId()) {
-    case android.R.id.home:
-      NavUtils.navigateUpFromSameTask(this);
-      return true;
-    }
-    return super.onOptionsItemSelected(item);
-  }
-
   @Override
   public void onCreate(Bundle saveInstanceState) {
 
@@ -39,6 +27,16 @@ public class DisplayMessageActivity extends Activity {
 
     // Place text view in window
     setContentView(textView);
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    switch(item.getItemId()) {
+    case android.R.id.home:
+      NavUtils.navigateUpFromSameTask(this);
+      return true;
+    }
+    return super.onOptionsItemSelected(item);
   }
 }
 
